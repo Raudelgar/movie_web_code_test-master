@@ -1,0 +1,23 @@
+.nav-title-container {
+	display: flex;
+	justify-content: flex-start;
+	align-items: center;
+	width: 100%;
+	max-width: 1200px;
+	padding-left: 40px;
+
+	.link {
+		text-decoration: none;
+
+		.title {
+			color: #484747;
+			// margin: 0 5rem;
+			font-weight: bold;
+			font-family: sans-serif;
+
+			&:hover {
+				color: #2f2f2f;
+			}
+		}
+	}
+}
