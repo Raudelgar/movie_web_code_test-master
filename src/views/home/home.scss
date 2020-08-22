@@ -1,0 +1,15 @@
+.home-container {
+	width: 100%;
+	max-width: 1160px;
+	padding: 50px 25px 10px 25px;
+	border: 1px solid #a7a7a7;
+	border-radius: 0.2em;
+
+	.home-title-container {
+		width: 100%;
+		margin-bottom: 15px;
+		.home-title {
+			font-size: 1.2rem;
+		}
+	}
+}

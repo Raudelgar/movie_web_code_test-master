@@ -8,7 +8,7 @@ import './navBar.scss';
 const useStyles = makeStyles((theme) => ({
 	nav: {
 		backgroundColor: theme.palette.primary.main,
-		height: 100,
+		height: 115,
 		display: 'flex',
 		justifyContent: 'center',
 		alignItems: 'center',

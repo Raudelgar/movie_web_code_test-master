@@ -1,6 +1,8 @@
 import { combineReducers } from 'redux';
-import main from './reducers';
+import homeReducer from '../views/home/reducer.js';
 
-export default combineReducers({
-  main,
-});
+const initialState = {
+	main: homeReducer,
+};
+
+export default combineReducers(initialState);

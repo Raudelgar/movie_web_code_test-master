@@ -1,6 +1,9 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { getAllMovies } from '../../redux/actions';
+// import { getAllMovies } from '../../redux/actions';
+import { getAllMovies } from './actions.js';
+
+import './home.scss';
 
 class Home extends Component {
 	componentDidMount() {
@@ -9,7 +12,10 @@ class Home extends Component {
 
 	render() {
 		return (
-			<div>
+			<div className='home-container'>
+				<div className='home-title-container'>
+					<h3 className='home-title'>All movies</h3>
+				</div>
 				{this.props.movies.map((movie) => (
 					<div key={movie.imdbId}>{movie.title}</div>
 				))}
@@ -18,9 +24,10 @@ class Home extends Component {
 	}
 }
 
-const mapStateToProps = (state) => ({
-	movies: state.main.movies,
-});
+const mapStateToProps = (state) =>
+	console.log(state) || {
+		movies: state.main.movies,
+	};
 
 const mapDispatchToProps = (dispatch) => ({
 	getAllMovies: () => dispatch(getAllMovies()),
