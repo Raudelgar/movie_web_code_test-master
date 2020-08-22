@@ -23,10 +23,6 @@ class Home extends Component {
 	}
 }
 
-// const mapStateToProps = ({ main }) => ({
-// 	movies: main.movies,
-// });
-
 const mapDispatchToProps = (dispatch) => ({
 	getAllMovies: () => dispatch(getAllMovies()),
 });

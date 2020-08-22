@@ -1,5 +1,6 @@
 import React from 'react';
 import useHomeState from '../../hooks/useHomeState';
+import Card from './Card.js';
 
 export default function Cards() {
 	const movies = useHomeState();
@@ -8,9 +9,11 @@ export default function Cards() {
 		return <h2>Loading..</h2>;
 	}
 	return (
-		<div>
-			{movies.map((movie) => (
-				<div key={movie.imdbId}>{movie.title}</div>
+		<div className='cards-grid-container'>
+			{movies.map(({ id, imdbId, poster, releaseDate, title }) => (
+				<div key={imdbId} className='card-grid-item'>
+					<Card poster={poster} title={title} />
+				</div>
 			))}
 		</div>
 	);
