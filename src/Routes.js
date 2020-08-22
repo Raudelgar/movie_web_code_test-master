@@ -6,6 +6,7 @@ import Content from './components/content/Content.js';
 
 import Home from './views/home/Home.js';
 import NavBar from './views/nav/NavBar.js';
+import MoviesDetails from './views/movies/MoviesDetails.js';
 
 const Routes = (routeProps) => (
 	<App location={routeProps.location}>
@@ -13,6 +14,7 @@ const Routes = (routeProps) => (
 		<Content>
 			<Switch>
 				<Route exact path='/' component={Home} />
+				<Route path='/:id' component={MoviesDetails} />
 			</Switch>
 		</Content>
 	</App>

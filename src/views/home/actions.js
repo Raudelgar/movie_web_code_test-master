@@ -14,7 +14,7 @@ function setMovies(movies) {
 export const getAllMovies = () => async (dispatch) => {
 	try {
 		const movies = await MoviesService.getAllMovies();
-		dispatch(dispatch(setMovies(movies)));
+		dispatch(setMovies(movies));
 	} catch (error) {
 		console.log(error);
 	}

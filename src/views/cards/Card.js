@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { Paper } from '@material-ui/core';
-import ImageIcon from '@material-ui/icons/Image';
+// import ImageIcon from '@material-ui/icons/Image';
 import PropTypes from 'prop-types';
 
 import { makeStyles } from '@material-ui/core/styles';

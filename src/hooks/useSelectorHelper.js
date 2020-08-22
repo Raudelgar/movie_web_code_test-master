@@ -1,4 +1,3 @@
-export function moviesSelector({ main }) {
-	const { movies } = main;
-	return movies;
+export function moviesDetilsSelector({ details }) {
+	return details;
 }
