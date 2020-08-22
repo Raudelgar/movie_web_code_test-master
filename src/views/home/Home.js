@@ -4,6 +4,7 @@ import { connect } from 'react-redux';
 import { getAllMovies } from './actions.js';
 
 import './home.scss';
+import Cards from '../cards/Cards.js';
 
 class Home extends Component {
 	componentDidMount() {
@@ -16,21 +17,18 @@ class Home extends Component {
 				<div className='home-title-container'>
 					<h3 className='home-title'>All movies</h3>
 				</div>
-				{this.props.movies.map((movie) => (
-					<div key={movie.imdbId}>{movie.title}</div>
-				))}
+				<Cards />
 			</div>
 		);
 	}
 }
 
-const mapStateToProps = (state) =>
-	console.log(state) || {
-		movies: state.main.movies,
-	};
+// const mapStateToProps = ({ main }) => ({
+// 	movies: main.movies,
+// });
 
 const mapDispatchToProps = (dispatch) => ({
 	getAllMovies: () => dispatch(getAllMovies()),
 });
 
-export default connect(mapStateToProps, mapDispatchToProps)(Home);
+export default connect(null, mapDispatchToProps)(Home);
