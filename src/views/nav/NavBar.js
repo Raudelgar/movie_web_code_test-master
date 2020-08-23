@@ -46,6 +46,7 @@ export default function NavBar() {
 	const handleRedirect = (term) => {
 		if (term.trim() !== '') {
 			return history.push({
+				pathname: '/',
 				search: `?q=${term}`,
 			});
 		} else {
