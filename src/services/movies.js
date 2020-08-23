@@ -11,6 +11,12 @@ const MoviesService = {
 				return response.json();
 			}
 		),
+	fetchMovieByTitle: (term) =>
+		fetch(`http://localhost:3001/movies/search?s=${term}`).then(function (
+			response
+		) {
+			return response.json();
+		}),
 };
 
 export default MoviesService;

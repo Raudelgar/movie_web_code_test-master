@@ -15,6 +15,7 @@ const Routes = (routeProps) => (
 			<Switch>
 				<Route exact path='/' component={Home} />
 				<Route path='/:id' component={MoviesDetails} />
+				<Route path='/:term' component={Home} />
 			</Switch>
 		</Content>
 	</App>
