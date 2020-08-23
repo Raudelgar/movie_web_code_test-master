@@ -4,7 +4,7 @@ import { Paper } from '@material-ui/core';
 import { useHistory } from 'react-router-dom';
 import useDebounceHook from '../../hooks/useDebounceHook.js';
 import { useDispatch } from 'react-redux';
-import { getMovieByTitle } from './actions.js';
+import { getMovieByTitle, clearSearch } from './actions.js';
 
 import { makeStyles } from '@material-ui/core/styles';
 import './navBar.scss';
@@ -49,6 +49,7 @@ export default function NavBar() {
 				search: `?q=${term}`,
 			});
 		} else {
+			dispatch(clearSearch());
 			return history.push('/');
 		}
 	};

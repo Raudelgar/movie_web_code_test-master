@@ -33,8 +33,8 @@ const renderSearch = (search, term) => {
 	);
 };
 
-const filterRender = (movies, search, term) => {
-	if (search.length > 0) {
+const filterRender = (movies, search, term, clearSearch) => {
+	if (search.length > 0 && !clearSearch) {
 		return renderSearch(search, term);
 	} else if (!movies.length) {
 		return (
@@ -89,7 +89,7 @@ class Home extends Component {
 	}
 
 	render() {
-		const { movies, location } = this.props;
+		const { movies, location, clearSearch } = this.props;
 		const { filterMovies } = this.state;
 		const parsed = queryString.parse(location.search);
 		let term;
@@ -99,15 +99,16 @@ class Home extends Component {
 
 		return (
 			<div className='home-container'>
-				{filterRender(movies, filterMovies, term)}
+				{filterRender(movies, filterMovies, term, clearSearch)}
 			</div>
 		);
 	}
 }
 
-const mapStateToProps = ({ main, search }) => ({
+const mapStateToProps = ({ main, search, clearSearch }) => ({
 	movies: main.movies,
 	search,
+	clearSearch,
 });
 
 const mapDispatchToProps = (dispatch) => ({
