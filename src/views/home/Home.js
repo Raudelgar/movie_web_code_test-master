@@ -12,7 +12,7 @@ const renderSearch = (search, term) => {
 	return (
 		<>
 			<div className='home-title-container'>
-				<h3 className='home-title'>{`${result} results for ${term}`}</h3>
+				<h3 className='home-title'>{`${result} results for "${term}"`}</h3>
 			</div>
 			<div className='cards-grid-container'>
 				{search.map(({ id, imdbId, poster, releaseDate, title }) => (
