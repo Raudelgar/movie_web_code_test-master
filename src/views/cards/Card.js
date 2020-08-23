@@ -11,6 +11,10 @@ const useStyles = makeStyles((theme) => ({
 		width: 225,
 		height: 400,
 		marginBottom: 20,
+		'&:hover': {
+			boxShadow:
+				'0px 3px 3px -2px rgba(0,0,0,0.2), 0px 3px 4px 0px rgba(0,0,0,0.14), 0px 1px 8px 0px rgb(153, 231, 208)',
+		},
 	},
 }));
 
@@ -21,7 +25,7 @@ export default function Card({ poster, title }) {
 	const handleImageLoad = () => setIMgSuccess(true);
 	const handleImageLoadError = () => setIMgSuccess(false);
 	return (
-		<Paper className={classes.cardPaper} elevation={3}>
+		<Paper className={classes.cardPaper} elevation={0}>
 			<div className='img-container'>
 				<img
 					className='poster'
@@ -32,7 +36,7 @@ export default function Card({ poster, title }) {
 				/>
 			</div>
 			<div className='card-title-container'>
-				<p>{title}</p>
+				<p className='card-title'>{title}</p>
 			</div>
 		</Paper>
 	);
@@ -42,3 +46,7 @@ Card.propTypes = {
 	poster: PropTypes.string.isRequired,
 	title: PropTypes.string.isRequired,
 };
+
+/*
+box-shadow: 0px 3px 3px -2px rgba(0,0,0,0.2), 0px 3px 4px 0px rgba(0,0,0,0.14), 0px 1px 8px 0px rgba(0,0,0,0.12);
+*/

@@ -30,7 +30,7 @@ export default function MoviesDetailsSuccess({ details, imdbId }) {
 						<span className='movie-details-desc-header-span'>{`${Rated} | ${Runtime} | ${Genre} | ${Released}`}</span>
 					</div>
 					<div className='movie-details-desc-header-rate'>
-						<h3 className='movie-details-desc-rate'>{`${imdbRating}/10`}</h3>
+						<h3 className='movie-details-desc-rate'>{`${imdbRating} / 10`}</h3>
 					</div>
 				</div>
 				<div className='movie-details-desc'>

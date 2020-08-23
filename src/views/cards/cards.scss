@@ -14,4 +14,10 @@
 	display: flex;
 	justify-content: center;
 	align-items: center;
+
+	.card-title {
+		&:hover {
+			color: #99e7d0;
+		}
+	}
 }
