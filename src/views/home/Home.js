@@ -103,6 +103,7 @@ class Home extends Component {
 			<div className='home-container'>
 				{error && (
 					<div>
+						<h3 className='home-title'>{`0 results for "${term}"`}</h3>
 						<img src={noResultSVG} alt='No Results' />
 					</div>
 				)}
