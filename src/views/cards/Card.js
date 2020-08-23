@@ -1,6 +1,6 @@
-import React, { useState } from 'react';
+import React, { useRef } from 'react';
 import { Paper } from '@material-ui/core';
-// import ImageIcon from '@material-ui/icons/Image';
+import defaultPoster from '../../static/poster_placeholder.svg';
 import PropTypes from 'prop-types';
 
 import { makeStyles } from '@material-ui/core/styles';
@@ -20,18 +20,17 @@ const useStyles = makeStyles((theme) => ({
 
 export default function Card({ poster, title }) {
 	const classes = useStyles();
-	const [imgSuccess, setIMgSuccess] = useState(true);
+	const imgRef = useRef();
 
-	const handleImageLoad = () => setIMgSuccess(true);
-	const handleImageLoadError = () => setIMgSuccess(false);
+	const handleImageLoadError = () => (imgRef.current.src = defaultPoster);
 	return (
 		<Paper className={classes.cardPaper} elevation={0}>
 			<div className='img-container'>
 				<img
+					ref={imgRef}
 					className='poster'
-					src={imgSuccess ? poster : title}
+					src={poster}
 					alt={title}
-					onLoad={handleImageLoad}
 					onError={handleImageLoadError}
 				/>
 			</div>
@@ -46,7 +45,3 @@ Card.propTypes = {
 	poster: PropTypes.string.isRequired,
 	title: PropTypes.string.isRequired,
 };
-
-/*
-box-shadow: 0px 3px 3px -2px rgba(0,0,0,0.2), 0px 3px 4px 0px rgba(0,0,0,0.14), 0px 1px 8px 0px rgba(0,0,0,0.12);
-*/
