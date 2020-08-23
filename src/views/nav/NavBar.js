@@ -26,16 +26,16 @@ export default function NavBar() {
 	const [searchTxt, setSearchTxt] = useState('');
 	const dispatch = useDispatch();
 
-	// const debounceSearch = useDebounceHook(
-	// 	(txt) => dispatch(getMovieByTitle(txt)),
-	// 	200
-	// );
+	const debounceSearch = useDebounceHook(
+		(txt) => dispatch(getMovieByTitle(txt)),
+		1000
+	);
 
-	// useEffect(() => {
-	// 	if (searchTxt.trim() !== '') {
-	// 		debounceSearch(searchTxt);
-	// 	}
-	// }, [searchTxt, debounceSearch]);
+	useEffect(() => {
+		if (searchTxt.trim() !== '') {
+			debounceSearch(searchTxt);
+		}
+	}, [searchTxt, debounceSearch]);
 
 	const hanldeSearch = (e) => {
 		if (e.key === 'Enter' && searchTxt.trim() !== '') {

@@ -1,4 +1,5 @@
 import MoviesService from '../../services/movies.js';
+import { searchFail } from '../../redux/errorAction.js';
 
 export const ALL_MOVIES_LOADED = 'ALL_MOVIES_LOADED';
 
@@ -12,10 +13,11 @@ function setMovies(movies) {
 }
 
 export const getAllMovies = () => async (dispatch) => {
+	dispatch(searchFail(false));
 	try {
 		const movies = await MoviesService.getAllMovies();
 		dispatch(setMovies(movies));
 	} catch (error) {
-		console.log(error);
+		dispatch(searchFail(true));
 	}
 };

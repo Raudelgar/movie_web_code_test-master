@@ -6,6 +6,7 @@ import MovieDetailsSuccess from './MovieDetailsSuccess.js';
 
 import './movieDetails.scss';
 import MoviesDetailsFail from './MovieDetailsFail.js';
+import MUILinearProgress from '../../components/loaders/MUILinearProgress.js';
 
 export default function MoviesDetails({ location, history }) {
 	const { imdbId } = location.state;
@@ -17,14 +18,14 @@ export default function MoviesDetails({ location, history }) {
 		if (!detailsState[imdbId]) {
 			dispatch(getMovieByImdbId(imdbId));
 		}
-	}, [detailsState]);
+	}, [detailsState, dispatch, imdbId]);
 
 	const handleGoBack = () => history.push('/');
 
 	details.current = detailsState[imdbId];
 
 	if (!details.current) {
-		return <h2>Loading..</h2>;
+		return <MUILinearProgress />;
 	} else {
 		const { Title, Plot, imdbRating } = details.current;
 		if (!Title || !Plot || !imdbRating) {

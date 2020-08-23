@@ -1,5 +1,6 @@
-import React from 'react';
+import React, { useRef } from 'react';
 import PropTypes from 'prop-types';
+import defaultPoster from '../../static/poster_placeholder.svg';
 
 import './movieDetails.scss';
 
@@ -18,10 +19,18 @@ export default function MoviesDetailsSuccess({ details, imdbId }) {
 		Actors,
 		imdbRating,
 	} = details.current;
+	const imgRef = useRef();
+
+	const handleImageLoadError = () => (imgRef.current.src = defaultPoster);
 	return (
 		<div className='movie-detials-container'>
 			<div className='movie-details-img-container'>
-				<img className='movie-details-img' src={Poster} />
+				<img
+					className='movie-details-img'
+					src={Poster}
+					alt={Title}
+					onError={handleImageLoadError}
+				/>
 			</div>
 			<div className='movie-details-desc-container'>
 				<div className='movie-details-desc-header'>
