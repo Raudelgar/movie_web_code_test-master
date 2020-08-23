@@ -13,6 +13,7 @@
 		margin-bottom: 15px;
 		.home-title {
 			font-size: 1.2rem;
+			text-align: center;
 		}
 	}
 
@@ -37,6 +38,11 @@
 	@media (min-width: 600px) {
 		.cards-grid-container {
 			grid-template-columns: repeat(2, 1fr);
+		}
+		.home-title-container {
+			.home-title {
+				text-align: initial;
+			}
 		}
 	}
 

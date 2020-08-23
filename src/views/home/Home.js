@@ -4,6 +4,8 @@ import { getAllMovies } from './actions.js';
 import Card from '../cards/Card.js';
 import { Link } from 'react-router-dom';
 import queryString from 'query-string';
+import MUILinearProgress from '../../components/loaders/MUILinearProgress.js';
+import noResultSVG from '../../static/no_results.svg';
 
 import './home.scss';
 
@@ -42,7 +44,7 @@ const filterRender = (movies, search, term, clearSearch) => {
 				<div className='home-title-container'>
 					<h3 className='home-title'>All movies</h3>
 				</div>
-				<h2>Loading..</h2>
+				<MUILinearProgress />
 			</>
 		);
 	}
@@ -89,26 +91,32 @@ class Home extends Component {
 	}
 
 	render() {
-		const { movies, location, clearSearch } = this.props;
+		const { movies, location, clearSearch, error } = this.props;
 		const { filterMovies } = this.state;
 		const parsed = queryString.parse(location.search);
 		let term;
 		if (parsed.q) {
 			term = parsed.q;
 		}
-
+		console.log(error);
 		return (
 			<div className='home-container'>
-				{filterRender(movies, filterMovies, term, clearSearch)}
+				{error && (
+					<div>
+						<img src={noResultSVG} alt='No Results' />
+					</div>
+				)}
+				{!error && filterRender(movies, filterMovies, term, clearSearch)}
 			</div>
 		);
 	}
 }
 
-const mapStateToProps = ({ main, search, clearSearch }) => ({
+const mapStateToProps = ({ main, search, clearSearch, error }) => ({
 	movies: main.movies,
 	search,
 	clearSearch,
+	error,
 });
 
 const mapDispatchToProps = (dispatch) => ({

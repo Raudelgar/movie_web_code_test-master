@@ -1,10 +1,12 @@
 .nav-title-container {
 	display: flex;
-	justify-content: space-between;
+	flex-direction: column;
+	justify-content: space-evenly;
 	align-items: center;
 	width: 100%;
 	max-width: 1285px;
 	margin: 0 3rem;
+	height: 115px;
 
 	.link {
 		text-decoration: none;
@@ -25,5 +27,12 @@
 		border: 1px solid #cacaca;
 		border-radius: 0.3em;
 		padding: 10px;
+	}
+}
+
+@media (min-width: 600px) {
+	.nav-title-container {
+		justify-content: space-between;
+		flex-direction: row;
 	}
 }
