@@ -23,7 +23,8 @@
 	}
 }
 
-.movie-detials-container {
+.movie-detials-container,
+.movie-detials-container-error {
 	width: 100%;
 	max-width: 1250px;
 	padding: 50px 25px 10px 25px;
@@ -75,6 +76,19 @@
 				font-weight: 200;
 			}
 		}
+	}
+}
+
+.movie-detials-container-error {
+	.movie-detials-error-msg {
+		font-size: 1.6rem;
+	}
+	.movie-detials-error-svg {
+		width: 200px;
+		height: 200px;
+		display: flex;
+		justify-content: center;
+		align-items: center;
 	}
 }
 
