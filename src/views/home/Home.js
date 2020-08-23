@@ -98,7 +98,7 @@ class Home extends Component {
 		if (parsed.q) {
 			term = parsed.q;
 		}
-		console.log(error);
+
 		return (
 			<div className='home-container'>
 				{error && (

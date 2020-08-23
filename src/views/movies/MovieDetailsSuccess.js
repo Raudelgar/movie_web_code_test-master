@@ -28,6 +28,7 @@ export default function MoviesDetailsSuccess({ details, imdbId }) {
 				<img
 					className='movie-details-img'
 					src={Poster}
+					alt={Title}
 					onError={handleImageLoadError}
 				/>
 			</div>

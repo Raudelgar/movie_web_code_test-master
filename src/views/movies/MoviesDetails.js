@@ -18,7 +18,7 @@ export default function MoviesDetails({ location, history }) {
 		if (!detailsState[imdbId]) {
 			dispatch(getMovieByImdbId(imdbId));
 		}
-	}, [detailsState]);
+	}, [detailsState, dispatch, imdbId]);
 
 	const handleGoBack = () => history.push('/');
 

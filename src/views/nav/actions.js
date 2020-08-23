@@ -1,8 +1,8 @@
 import MoviesService from '../../services/movies.js';
+import { searchFail } from '../../redux/errorAction.js';
 
 export const SEARCH_BY_TITLE = 'SEARCH_BY_TITLE';
 export const CLEAR_SEARCH = 'CLEAR_SEARCH';
-export const SEARCH_FAIL = 'SEARCH_FAIL';
 
 function setMovieTitle(movies) {
 	return {
@@ -17,7 +17,6 @@ export const getMovieByTitle = (title) => async (dispatch) => {
 		const movies = await MoviesService.fetchMovieByTitle(title);
 		dispatch(setMovieTitle(movies));
 	} catch (error) {
-		console.log(error);
 		dispatch(searchFail(true));
 	}
 };
@@ -25,12 +24,5 @@ export const getMovieByTitle = (title) => async (dispatch) => {
 export function clearSearch() {
 	return {
 		type: CLEAR_SEARCH,
-	};
-}
-
-export function searchFail(bool) {
-	return {
-		type: SEARCH_FAIL,
-		payload: bool,
 	};
 }
